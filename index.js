@@ -17,6 +17,7 @@ const userRouter=require("./routes/user.js");
 const passport=require('passport')
 const LocaStrategy=require('passport-local')
 const User=require("./model/user.js");
+const port = process.env.PORT || 4000;
 
 
 app.use(express.json());
@@ -85,6 +86,6 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{err})
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(`running...`)
   })
