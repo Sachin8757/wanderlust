@@ -19,7 +19,6 @@ const ejsMate=require('ejs-mate');
 const ExpressError=require("./util/ExpressError.js")
 const cookiepaser=require('cookie-parser');
 const session=require('express-session')
-const MongoStore=require('connect-mongo');
 const flsah=require('connect-flash')
 const { Cookie } = require('express-session');
 const listingRouter=require("./routes/listing.js")
