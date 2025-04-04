@@ -16,7 +16,7 @@ const reviewRouter=require("./routes/review.js");
 const userRouter=require("./routes/user.js");
 const passport=require('passport')
 const LocaStrategy=require('passport-local')
-const User=require("./model/user.js")
+const User=require("./model/user.js");
 
 
 app.use(express.json());
