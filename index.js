@@ -1,13 +1,9 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-<<<<<<< HEAD
 
 const MongoStore = require('connect-mongo');
 const port = process.env.PORT || 4000;
-=======
-const MongoStore = require('connect-mongo');
->>>>>>> 7044462b5bcfed8a062c9a3a23272daf9d3612d5
 const express=require('express')
 const app=express();
 const mongoose=require("./model/connection.js")
@@ -38,7 +34,7 @@ app.engine("ejs",ejsMate);
 
 
 const store=MongoStore.create({
-    mongoUrl:'mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/',
+    mongoUrl:process.env.ATLASDB_URL,
     crypto:{
         secret:process.env.Secret,
         touchAfter:24*3600,

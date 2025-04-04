@@ -1,8 +1,8 @@
 const mongoose=require('mongoose')
 const {Schema}=mongoose.Schema;
 const dotenv=require('dotenv').config();
- const url='=mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/';
- // const url=process.env.ATLASDB_URL;
+//  const url='=mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/';
+ const url=process.env.ATLASDB_URL;
 main().then(()=>{
     console.log("db connected !");
 }).catch((err)=>{
@@ -10,9 +10,5 @@ main().then(()=>{
 })
 async function main() {
     await mongoose.connect(url)
-<<<<<<< HEAD
 }
-=======
-    
-}
->>>>>>> 7044462b5bcfed8a062c9a3a23272daf9d3612d5
+
