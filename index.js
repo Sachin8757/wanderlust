@@ -1,9 +1,13 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
+<<<<<<< HEAD
 
 const MongoStore = require('connect-mongo');
 const port = process.env.PORT || 4000;
+=======
+const MongoStore = require('connect-mongo');
+>>>>>>> 7044462b5bcfed8a062c9a3a23272daf9d3612d5
 const express=require('express')
 const app=express();
 const mongoose=require("./model/connection.js")
@@ -34,7 +38,7 @@ app.engine("ejs",ejsMate);
 
 
 const store=MongoStore.create({
-    mongoUrl:process.env.ATLASDB_URL,
+    mongoUrl:'mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/',
     crypto:{
         secret:process.env.Secret,
         touchAfter:24*3600,
@@ -89,6 +93,15 @@ app.use((err,req,res,next)=>{
     let{statusCode=500,message="something went wrong!"}=err;
     res.status(statusCode).render("error.ejs",{err})
 })
+
+app.use(session({
+  store: MongoStore.create({
+    mongoUrl:process.env.ATLASDB_URL
+  }),
+  secret: process.env.Secret,
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.listen(port, () => {
     console.log(`running...`)
