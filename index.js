@@ -32,7 +32,7 @@ app.engine("ejs",ejsMate);
 
 
 const store=MongoStore.create({
-    mongoUrl:mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/?retryWrites=true&w=majority&appName=shopdata,
+    mongoUrl:'mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/?retryWrites=true&w=majority&appName=shopdata',
     crypto:{
         secret:process.env.Secret,
         touchAfter:24*3600,
