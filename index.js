@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-
+const MongoStore = require('connect-mongo');
 const express=require('express')
 const app=express();
 const mongoose=require("./model/connection.js")
@@ -32,7 +32,7 @@ app.engine("ejs",ejsMate);
 
 
 const store=MongoStore.create({
-    mongoUrl:process.env.ATLASDB_URL,
+    mongoUrl:mongodb+srv://sachin:8757887103@shopdata.shpwbu2.mongodb.net/?retryWrites=true&w=majority&appName=shopdata,
     crypto:{
         secret:process.env.Secret,
         touchAfter:24*3600,
@@ -87,7 +87,7 @@ app.use((err,req,res,next)=>{
     let{statusCode=500,message="something went wrong!"}=err;
     res.status(statusCode).render("error.ejs",{err})
 })
-const MongoStore = require('connect-mongo');
+
 app.use(session({
   store: MongoStore.create({
     mongoUrl:process.env.ATLASDB_URL
