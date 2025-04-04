@@ -1,6 +1,16 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
+const MongoStore = require('connect-mongo');
+app.use(session({
+  store: MongoStore.create({
+    mongoUrl:process.env.ATLASDB_URL
+  }),
+  secret: process.env.Secret,
+  resave: false,
+  saveUninitialized: true
+}));
+const port = process.env.PORT || 4000;
 const express=require('express')
 const app=express();
 const mongoose=require("./model/connection.js")
@@ -19,6 +29,7 @@ const userRouter=require("./routes/user.js");
 const passport=require('passport')
 const LocaStrategy=require('passport-local')
 const User=require("./model/user.js");
+
 
 
 app.use(express.json());
@@ -87,6 +98,7 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{err})
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log(`running...`)
+
   })
