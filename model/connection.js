@@ -1,5 +1,3 @@
-
-
 const mongoose=require('mongoose')
 const {Schema}=mongoose.Schema;
 const dotenv=require('dotenv').config();
@@ -11,5 +9,4 @@ main().then(()=>{
 })
 async function main() {
     await mongoose.connect(url)
-    
 }

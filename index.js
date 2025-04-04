@@ -1,15 +1,8 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
+
 const MongoStore = require('connect-mongo');
-app.use(session({
-  store: MongoStore.create({
-    mongoUrl:process.env.ATLASDB_URL
-  }),
-  secret: process.env.Secret,
-  resave: false,
-  saveUninitialized: true
-}));
 const port = process.env.PORT || 4000;
 const express=require('express')
 const app=express();
@@ -20,7 +13,6 @@ const ejsMate=require('ejs-mate');
 const ExpressError=require("./util/ExpressError.js")
 const cookiepaser=require('cookie-parser');
 const session=require('express-session')
-const MongoStore=require('connect-mongo');
 const flsah=require('connect-flash')
 const { Cookie } = require('express-session');
 const listingRouter=require("./routes/listing.js")
